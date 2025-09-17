@@ -22,3 +22,8 @@ deployment "production" {
     default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
 }
+
+publish_output "lambda_urls" {
+  description = "The networking Stack's VPC's ID."
+  value       = [ for x in demployment.lambda: x.invoke_arn ]
+}
