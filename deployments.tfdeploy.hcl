@@ -12,6 +12,8 @@ deployment "development" {
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
+
+  destroy = true
 }
 
 deployment "production" {
@@ -21,6 +23,8 @@ deployment "production" {
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
+
+  destroy = true
 }
 
 deployment "test" {
@@ -30,4 +34,6 @@ deployment "test" {
     identity_token = identity_token.aws.jwt
     default_tags   = { stacks-preview-example = "lambda-component-expansion-stack" }
   }
+
+  destroy = true
 }
