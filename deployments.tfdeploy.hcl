@@ -25,5 +25,5 @@ deployment "production" {
 
 publish_output "lambda_urls" {
   description = "The networking Stack's VPC's ID."
-  value       = [ for x in demployment.lambda: x.invoke_arn ]
+  value       = [ for x in deployment.lambda: x.invoke_arn ]
 }
