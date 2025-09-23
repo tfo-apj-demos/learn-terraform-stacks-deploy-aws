@@ -1,5 +1,5 @@
-output "lambda_urls" {
-  type = list(string)
-  description = "URLs to invoke lambda functions"
-  value = [ for x in component.lambda: x.invoke_arn ]
+output "intance_ips" {
+  type        = list(string)
+  description = "Private IPs of EC2 instances"
+  value       = [for x in component.instance : x.invoke_arn]
 }

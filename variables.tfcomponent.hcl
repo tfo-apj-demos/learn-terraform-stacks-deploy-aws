@@ -2,20 +2,26 @@
 # SPDX-License-Identifier: MPL-2.0
 
 variable "regions" {
-  type = set(string)
+  description = "AWS regions to deploy to."
+  type        = set(string)
 }
 
 variable "identity_token" {
-  type      = string
-  ephemeral = true
+  description = "Identity token for authentication."
+  type        = string
+  ephemeral   = true
 }
 
 variable "role_arn" {
-  type = string
+  description = "ARN of role associated with identity token."
+  type        = string
 }
 
 variable "default_tags" {
-  description = "A map of default tags to apply to all AWS resources"
+  description = "Default tags for all resources."
   type        = map(string)
-  default     = {}
+  default = {
+    Stack       = "learn-stacks-deploy-aws",
+    Environment = "dev"
+  }
 }
