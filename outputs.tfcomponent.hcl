@@ -1,5 +1,11 @@
-output "intance_ips" {
+output "intance_ids" {
   type        = list(string)
-  description = "Private IPs of EC2 instances"
-  value       = [for x in component.instance : x.invoke_arn]
+  description = "EC2 instance IDs"
+  value       = [for x in component.instance : x.instance_ids]
+}
+
+output "intance_private_dns" {
+  type        = list(string)
+  description = "EC2 instance Private DNS names"
+  value       = [for x in component.instance : x.private_dns]
 }
