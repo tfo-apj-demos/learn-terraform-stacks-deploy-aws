@@ -10,15 +10,15 @@ variable "network" {
   })
 }
 
+variable "key_name" {
+  description = "Name of the AWS EC2 key pair to use to login to the EC2 instances."
+  type        = string
+}
+
 variable "instances_per_subnet" {
   description = "Number of instances per private subnet."
   type        = number
   default     = 1
-}
-
-variable "key_name" {
-  description = "Name of the AWS EC2 key pair to use to login to the EC2 instances."
-  type        = string
 }
 
 variable "instance_type" {

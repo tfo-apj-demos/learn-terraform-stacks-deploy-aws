@@ -1,10 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-# terraform {
-#   experiments = [ unknown_instances ]
-# }
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 

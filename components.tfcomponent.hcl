@@ -1,7 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-
 component "vpc" {
   source   = "./vpc"
   for_each = var.regions
@@ -20,7 +19,7 @@ component "instance" {
   for_each = var.regions
 
   inputs = {
-    network  = {
+    network = {
       vpc_id             = component.vpc[each.value].vpc_id
       private_subnet_ids = component.vpc[each.value].private_subnet_ids
       security_group_ids = [component.vpc[each.value].security_group_id_ssh]

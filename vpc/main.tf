@@ -22,7 +22,6 @@ module "vpc" {
   public_subnets  = var.public_subnets
 }
 
-# Create a security group that allows SSH access to the EC2 instances
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
