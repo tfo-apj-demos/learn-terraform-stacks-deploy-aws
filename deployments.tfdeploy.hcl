@@ -8,38 +8,23 @@ identity_token "aws" {
 deployment "development" {
   inputs = {
     regions        = ["us-east-1"]
-    role_arn       = "arn:aws:iam::949008909725:role/stacks-hashicorp-learn-Stacks"
+    role_arn       = "<YOUR_ROLE_ARN>"
     identity_token = identity_token.aws.jwt
     default_tags = {
       Stack       = "learn-stacks-deploy-aws",
       Environment = "dev"
     }
   }
-  destroy = true
 }
 
 deployment "production" {
   inputs = {
     regions        = ["us-east-1", "us-west-1"]
-    role_arn       = "arn:aws:iam::949008909725:role/stacks-hashicorp-learn-Stacks"
+    role_arn       = "<YOUR_ROLE_ARN>"
     identity_token = identity_token.aws.jwt
     default_tags = {
       Stack       = "learn-stacks-deploy-aws",
       Environment = "prod"
     }
   }
-  destroy = true
-}
-
-deployment "test" {
-  inputs = {
-    regions        = ["us-west-2"]
-    role_arn       = "arn:aws:iam::949008909725:role/stacks-hashicorp-learn-Stacks"
-    identity_token = identity_token.aws.jwt
-    default_tags = {
-      Stack       = "learn-stacks-deploy-aws",
-      Environment = "test"
-    }
-  }
-  destroy = true
 }
