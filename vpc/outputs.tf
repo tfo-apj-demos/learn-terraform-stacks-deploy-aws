@@ -7,11 +7,16 @@ output "vpc_id" {
 }
 
 output "private_subnet_ids" {
-  description = "Set of IDs of all of the private subnets."
-  value       = toset(module.vpc.private_subnets)
+  description = "IDs of all of the private subnets."
+  value       = module.vpc.private_subnets
 }
 
 output "public_subnet_ids" {
-  description = "Set of IDs of all of the public subnets."
-  value       = toset(module.vpc.public_subnets)
+  description = "IDs of all of the public subnets."
+  value       = module.vpc.public_subnets
+}
+
+output "security_group_id_ssh" {
+  description = "ID of the SSH security group."
+  value       = aws_security_group.allow_ssh.id
 }

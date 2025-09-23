@@ -20,8 +20,13 @@ component "instance" {
   for_each = var.regions
 
   inputs = {
-    network  = component.vpc[each.value]
-    key_name = component.key_pair.key_name
+    network  = {
+      vpc_id             = component.vpc[each.value].vpc_id
+      private_subnet_ids = component.vpc[each.value].private_subnet_ids
+      security_group_ids = [component.vpc[each.value].security_group_id_ssh]
+    }
+
+    key_name = component.key_pair[each.value].key_name
   }
 
   providers = {
