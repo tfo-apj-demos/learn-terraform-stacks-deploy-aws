@@ -6,7 +6,7 @@ component "vpc" {
   for_each = var.regions
 
   inputs = {
-    vpc_name = "terraform-stacks-${each.value}-${var.default_tags.Environment}"
+    vpc_name = "stacks-${each.value}-${var.default_tags.Environment}"
   }
 
   providers = {
